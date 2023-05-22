@@ -31,7 +31,9 @@ stages:
   jobs:
   - job: BuildJob
     pool:
-      vmImage: $(vmImageName)
+      name: lab-pool
+      demands:
+       - agent.name -equals agent-ubuntu
     steps:
     - task: UsePythonVersion@0
       inputs:
